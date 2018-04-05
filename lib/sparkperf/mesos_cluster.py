@@ -15,14 +15,17 @@ class MesosCluster(Cluster):
         self.mesos_master = mesos_master
         self.spark_conf_dir = spark_conf_dir
         self.commit_sha = commit_sha
+        self.slaves = []
 
-        state_url = "http://" + os.path.join(mesos_master.strip("mesos://"), "state.json")
-        resp = urllib2.urlopen(state_url)
-        if resp.getcode() != 200:
-            raise "Bad status code returned fetching state.json from mesos master"
+        # Rest of the code is never used
 
-        state = json.loads(resp.read())
-        self.slaves = list(map((lambda slave: slave["hostname"]), state["slaves"]))
+        # state_url = "http://" + os.path.join(mesos_master.strip("mesos://"), "state.json")
+        # resp = urllib2.urlopen(state_url)
+        # if resp.getcode() != 200:
+        #     raise "Bad status code returned fetching state.json from mesos master"
+
+        # state = json.loads(resp.read())
+        # self.slaves = list(map((lambda slave: slave["hostname"]), state["slaves"]))
 
     def sync_spark(self):
         None
