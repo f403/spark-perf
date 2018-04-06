@@ -93,6 +93,13 @@ PREP_PYSPARK_TESTS = False
 PREP_STREAMING_TESTS = False
 PREP_MLLIB_TESTS = False
 
+# Force to prepare tests. Even if they are not started this time
+FORCE_PREP_SPARK_TESTS = False
+FORCE_PREP_PYSPARK_TESTS = False
+FORCE_PREP_STREAMING_TESTS = False
+FORCE_PREP_MLLIB_TESTS = False
+
+
 # Whether to warm up local disks (warm-up is only necesary on EC2).
 DISK_WARMUP = False
 
@@ -156,6 +163,9 @@ COMMON_JAVA_OPTS = [
 ]
 # Set driver memory here
 SPARK_DRIVER_MEMORY = "1g"
+SPARK_TOTAL_EXECUTOR_CORES = 8
+SPARK_EXECUTOR_MEMORY = "8g"
+
 
 # The following options value sets are shared among all tests.
 COMMON_OPTS = [
